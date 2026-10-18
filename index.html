@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker & Budget Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Smart Expense Tracker</h1>
+            <p>Track your personal finances with visual analytics and local storage persistence</p>
+        </header>
+
+        <div class="balance-cards">
+            <div class="card total">
+                <h3>Total Balance</h3>
+                <h2 id="totalBalance">₹0.00</h2>
+            </div>
+            <div class="card income">
+                <h3>Total Income</h3>
+                <h2 id="totalIncome" style="color: #10b981;">₹0.00</h2>
+            </div>
+            <div class="card expense">
+                <h3>Total Expenses</h3>
+                <h2 id="totalExpense" style="color: #ef4444;">₹0.00</h2>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card form-card">
+                <h3>Add New Transaction</h3>
+                <form id="txForm">
+                    <label>Description</label>
+                    <input type="text" id="desc" placeholder="e.g. College Books, Grocery, Stipend" required>
+                    <label>Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="e.g. 500" required>
+                    <label>Type</label>
+                    <select id="type">
+                        <option value="expense">Expense (-)</option>
+                        <option value="income">Income (+)</option>
+                    </select>
+                    <label>Category</label>
+                    <select id="category">
+                        <option value="Food & Dining">Food & Dining</option>
+                        <option value="Education & Books">Education & Books</option>
+                        <option value="Travel & Commute">Travel & Commute</option>
+                        <option value="Shopping & Gadgets">Shopping & Gadgets</option>
+                        <option value="Bills & Utilities">Bills & Utilities</option>
+                        <option value="Income / Stipend">Income / Stipend</option>
+                    </select>
+                    <button type="submit" class="btn">Add Transaction</button>
+                </form>
+            </div>
+
+            <div class="card chart-card">
+                <h3>Expense Breakdown by Category</h3>
+                <div style="position: relative; height: 260px;">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="card history-card">
+            <div class="history-header">
+                <h3>Transaction History</h3>
+                <button id="clearAll" class="btn-sm">Clear All</button>
+            </div>
+            <ul id="txList" class="tx-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
